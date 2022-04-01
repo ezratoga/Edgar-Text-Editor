@@ -23,6 +23,7 @@ namespace TextEditor
         public string savedFileName = "";
         public string savedAsFileName = "";
         public string textBefore = "";
+        public string textBeforeReplace = "";
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dialognew = MessageBox.Show("Do you want to save it before?", "New", MessageBoxButtons.YesNo);
@@ -141,7 +142,10 @@ namespace TextEditor
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Undo();
+            if (textBeforeReplace.Length > 0)
+                richTextBox1.Text = textBeforeReplace;
+            else
+                richTextBox1.Undo();
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -229,6 +233,18 @@ namespace TextEditor
                 serialf.Write(richTextBox1.Text);
                 serialf.Close();
                 openedFileName = sfdial.FileName;
+            }
+        }
+
+        private void findOrReplaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBeforeReplace = richTextBox1.Text;
+
+            Form3 form3 = new Form3(this);
+            form3.ShowDialog();
+            if (form3.isClosed == true)
+            {
+                richTextBox1.SelectionBackColor = Color.Transparent;
             }
         }
     }

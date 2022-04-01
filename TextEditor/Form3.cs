@@ -31,7 +31,10 @@ namespace TextEditor
             List<int> collectOfText = new List<int>();
             collectOfText.Add(indexOfText);
 
-            while (indexOfText != -1)
+            if (textBox1.Text.Length <= 0)
+                MessageBox.Show("Fill the 'Find' field to find word");
+
+            while (indexOfText != -1 && textBox1.Text.Length > 0)
             {
                 countText++;
                 indexOfText = f1.richTextBox1.Text.IndexOf(textBox1.Text, indexOfText + 1);
@@ -48,30 +51,51 @@ namespace TextEditor
 
             if (countButton1 == 1)
             {
+                if(collectOfText[countButton1 - 1] == -1)
+                {
+                    MessageBox.Show("Word is not found");
+                } 
+                else
+                {
+                    f1.richTextBox1.SelectionStart = collectOfText[countButton1 - 1];
+                    f1.richTextBox1.SelectionLength = textBox1.Text.Length;
+                    f1.richTextBox1.SelectionBackColor = Color.LightBlue;
+                }
                 //f1.richTextBox1.Select(collectOfText[countButton1 - 1], textBox1.Text.Length);
-                f1.richTextBox1.SelectionStart = collectOfText[countButton1 - 1];
-                f1.richTextBox1.SelectionLength = textBox1.Text.Length;
-                f1.richTextBox1.SelectionBackColor = Color.LightBlue;
                 //f1.richTextBox1.Find(textBox1.Text, collectOfText[countButton1 - 1], collectOfText[countButton1 - 1] + textBox1.Text.Length, RichTextBoxFinds.None);
             }
             else if (countButton1 > 1)
             {
-                f1.richTextBox1.SelectionStart = 0;
-                f1.richTextBox1.SelectAll();
-                f1.richTextBox1.SelectionBackColor = Color.Transparent;
-                f1.richTextBox1.SelectionStart = collectOfText[countButton1 - 1];
-                f1.richTextBox1.SelectionLength = textBox1.Text.Length;
-                f1.richTextBox1.SelectionBackColor = Color.LightBlue;
+                if (collectOfText[countButton1 - 1] == -1)
+                {
+                    MessageBox.Show("Word is not found");
+                }
+                else
+                {
+                    f1.richTextBox1.SelectionStart = 0;
+                    f1.richTextBox1.SelectAll();
+                    f1.richTextBox1.SelectionBackColor = Color.Transparent;
+                    f1.richTextBox1.SelectionStart = collectOfText[countButton1 - 1];
+                    f1.richTextBox1.SelectionLength = textBox1.Text.Length;
+                    f1.richTextBox1.SelectionBackColor = Color.LightBlue;
+                }
                 //f1.richTextBox1.Find(textBox1.Text, collectOfText[countButton1 - 1], collectOfText[countButton1 - 1] + textBox1.Text.Length, RichTextBoxFinds.None);
             }
             else if (countButton1 == 1 && button1ClickedReal > countButton1)
             {
-                f1.richTextBox1.SelectionStart = 0;
-                f1.richTextBox1.SelectAll();
-                f1.richTextBox1.SelectionBackColor = Color.Transparent;
-                f1.richTextBox1.SelectionStart = collectOfText[countButton1 - 1];
-                f1.richTextBox1.SelectionLength = textBox1.Text.Length;
-                f1.richTextBox1.SelectionBackColor = Color.LightBlue;
+                if (collectOfText[countButton1 - 1] == -1)
+                {
+                    MessageBox.Show("Word is not found");
+                }
+                else
+                {
+                    f1.richTextBox1.SelectionStart = 0;
+                    f1.richTextBox1.SelectAll();
+                    f1.richTextBox1.SelectionBackColor = Color.Transparent;
+                    f1.richTextBox1.SelectionStart = collectOfText[countButton1 - 1];
+                    f1.richTextBox1.SelectionLength = textBox1.Text.Length;
+                    f1.richTextBox1.SelectionBackColor = Color.LightBlue;
+                }
                 //f1.richTextBox1.Find(textBox1.Text, collectOfText[countButton1 - 1], collectOfText[countButton1 - 1] + textBox1.Text.Length, RichTextBoxFinds.None);
             }
             /*if (f1.openedFileName != "")
@@ -85,7 +109,7 @@ namespace TextEditor
                 while ((integerContainChar = FileHandle1.ReadByte()) != 1)
                     label3.Text = integerContainChar.ToString();
             }*/
-            label3.Text = button1ClickedReal.ToString();
+            label3.Text = indexOfText.ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -100,7 +124,10 @@ namespace TextEditor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            f1.richTextBox1.Text = f1.richTextBox1.Text.Replace(textBox1.Text, textBox2.Text);
+            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0)
+                f1.richTextBox1.Text = f1.richTextBox1.Text.Replace(textBox1.Text, textBox2.Text);
+            else
+                MessageBox.Show("Enter the empty field");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -112,14 +139,17 @@ namespace TextEditor
             List<int> collectOfText = new List<int>();
             collectOfText.Add(indexOfText);
 
-            while (indexOfText != -1)
+            while (indexOfText != -1 && textBox1.Text.Length > 0)
             {
                 countText++;
                 indexOfText = f1.richTextBox1.Text.IndexOf(textBox1.Text, indexOfText + 1);
                 collectOfText.Add(indexOfText);
             }
-            
-            f1.richTextBox1.Text = f1.richTextBox1.Text.Remove(collectOfText[countButton1 - 1], textBox1.Text.Length).Insert(collectOfText[countButton1 - 1], textBox2.Text);
+
+            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0)
+                f1.richTextBox1.Text = f1.richTextBox1.Text.Remove(collectOfText[countButton1 - 1], textBox1.Text.Length).Insert(collectOfText[countButton1 - 1], textBox2.Text);
+            else
+                MessageBox.Show("Please fill the empty field!");
         }
 
         private void Form3_Load(object sender, EventArgs e)
