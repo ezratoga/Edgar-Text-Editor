@@ -31,7 +31,7 @@ namespace TextEditor
             if (dialognew == DialogResult.Yes)
             {
                 SaveFileDialog sfdial = new SaveFileDialog();
-                sfdial.Filter = "Text Files (.txt)|*.txt|HTML Files (.html)|*.html|All Files(.*)|*";
+                sfdial.Filter = "Text Files (.txt)|*.txt;*.text|HTML Files (.html)|*.html|Hypertext Files (.hypertext)|*.hypertext|All Files (.*)|*";
                 sfdial.Title = "Save a file";
 
                 if (sfdial.ShowDialog() == DialogResult.OK)
@@ -62,7 +62,7 @@ namespace TextEditor
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Text Files (.txt)|*.txt|HTML Files (.html)|*.html|All Files (.*)|*";
+            ofd.Filter = "Text Files (.txt)|*.txt;*.text|HTML Files (.html)|*.html|Hypertext Files (.hypertext)|*.hypertext|All Files (.*)|*";
             ofd.Title = "Open a file";
 
             if(ofd.ShowDialog() == DialogResult.OK)
@@ -77,11 +77,10 @@ namespace TextEditor
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string beginHTML = "<!DOCTYPE html>";
             if (openedFileName == "")
             {
                 SaveFileDialog sfdial = new SaveFileDialog();
-                sfdial.Filter = "Text Files (.txt)|*.txt|HTML Files (.html)|*.html|All Files (.*)|*";
+                sfdial.Filter = "Text Files (.txt)|*.txt;*.text|HTML Files (.html)|*.html|Hypertext Files (.hypertext)|*.hypertext|All Files (.*)|*";
                 sfdial.Title = "Save a file";
 
                 if (sfdial.ShowDialog() == DialogResult.OK)
@@ -89,7 +88,6 @@ namespace TextEditor
                     StreamWriter serialf = new StreamWriter(sfdial.FileName);
                     if (richTextBox1.Text.Contains("<hypertext>") && sfdial.FileName.Contains(".html"))
                     {
-                        richTextBox1.Text = beginHTML + richTextBox1.Text;
                         richTextBox1.Text = richTextBox1.Text.Replace("<hypertext>", "<html>");
                         richTextBox1.Text = richTextBox1.Text.Replace("</hypertext>", "</html>");
                         richTextBox1.Text = richTextBox1.Text.Replace("<metadata>", "<meta");
@@ -110,7 +108,6 @@ namespace TextEditor
                 StreamWriter serialf = new StreamWriter(openedFileName);
                 if (richTextBox1.Text.Contains("<hypertext>") && openedFileName.Contains(".html"))
                 {
-                    richTextBox1.Text = beginHTML + richTextBox1.Text;
                     richTextBox1.Text = richTextBox1.Text.Replace("<hypertext>", "<html>");
                     richTextBox1.Text = richTextBox1.Text.Replace("</hypertext>", "</html>");
                     richTextBox1.Text = richTextBox1.Text.Replace("<metadata>", "<meta");
@@ -210,9 +207,8 @@ namespace TextEditor
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string beginHTML = "<!DOCTYPE html>";
             SaveFileDialog sfdial = new SaveFileDialog();
-            sfdial.Filter = "Text Files (.txt)|*.txt|HTML Files (.html)|*.html|All Files (.*)|*";
+            sfdial.Filter = "Text Files (.txt)|*.txt;*.text|HTML Files (.html)|*.html|Hypertext Files (.hypertext)|*.hypertext|All Files (.*)|*";
             sfdial.Title = "Save As a file";
 
             if (sfdial.ShowDialog() == DialogResult.OK)
@@ -220,7 +216,6 @@ namespace TextEditor
                 StreamWriter serialf = new StreamWriter(sfdial.FileName);
                 if (richTextBox1.Text.Contains("<hypertext>") && sfdial.FileName.Contains(".html"))
                 {
-                    richTextBox1.Text = beginHTML + richTextBox1.Text;
                     richTextBox1.Text = richTextBox1.Text.Replace("<hypertext>", "<html>");
                     richTextBox1.Text = richTextBox1.Text.Replace("</hypertext>", "</html>");
                     richTextBox1.Text = richTextBox1.Text.Replace("<metadata>", "<meta");
