@@ -26,7 +26,7 @@ namespace TextEditor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int indexOfText = f1.richTextBox1.Text.IndexOf(textBox1.Text);
+            int indexOfText = f1.richTextBox1.Text.ToLower().IndexOf(textBox1.Text.ToLower());
             int countText = 0;
             List<int> collectOfText = new List<int>();
             collectOfText.Add(indexOfText);
@@ -37,7 +37,7 @@ namespace TextEditor
             while (indexOfText != -1 && textBox1.Text.Length > 0)
             {
                 countText++;
-                indexOfText = f1.richTextBox1.Text.IndexOf(textBox1.Text, indexOfText + 1);
+                indexOfText = f1.richTextBox1.Text.ToLower().IndexOf(textBox1.Text.ToLower(), indexOfText + 1);
                 collectOfText.Add(indexOfText);
             }
 
@@ -134,7 +134,7 @@ namespace TextEditor
         {
             if (countButton1 == 0)
                 countButton1 = 1;
-            int indexOfText = f1.richTextBox1.Text.IndexOf(textBox1.Text);
+            int indexOfText = f1.richTextBox1.Text.ToLower().IndexOf(textBox1.Text.ToLower());
             int countText = 0;
             List<int> collectOfText = new List<int>();
             collectOfText.Add(indexOfText);
@@ -142,7 +142,7 @@ namespace TextEditor
             while (indexOfText != -1 && textBox1.Text.Length > 0)
             {
                 countText++;
-                indexOfText = f1.richTextBox1.Text.IndexOf(textBox1.Text, indexOfText + 1);
+                indexOfText = f1.richTextBox1.Text.ToLower().IndexOf(textBox1.Text.ToLower(), indexOfText + 1);
                 collectOfText.Add(indexOfText);
             }
 
