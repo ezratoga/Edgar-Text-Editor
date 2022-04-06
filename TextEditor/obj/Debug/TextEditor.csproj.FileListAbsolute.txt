@@ -47,3 +47,16 @@ D:\program\edgar-text-editor-master\cabang 1\Edgar-Text-Editor\TextEditor\obj\De
 D:\program\edgar-text-editor-master\cabang 1\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.csproj.CoreCompileInputs.cache
 D:\program\edgar-text-editor-master\cabang 1\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.exe
 D:\program\edgar-text-editor-master\cabang 1\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.pdb
+D:\program\Edgar-Text-Editor\TextEditor\bin\Debug\TextEditor.exe.config
+D:\program\Edgar-Text-Editor\TextEditor\bin\Debug\TextEditor.exe
+D:\program\Edgar-Text-Editor\TextEditor\bin\Debug\TextEditor.pdb
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.csproj.AssemblyReference.cache
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.csproj.SuggestedBindingRedirects.cache
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.Form1.resources
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.Form2.resources
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.Form3.resources
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.Properties.Resources.resources
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.csproj.GenerateResource.cache
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.csproj.CoreCompileInputs.cache
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.exe
+D:\program\Edgar-Text-Editor\TextEditor\obj\Debug\TextEditor.pdb
